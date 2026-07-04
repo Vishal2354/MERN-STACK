@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-ink: #14213d;
+  --color-ink-light: #2c3e63;
+  --color-paper: #f7f7f5;
+  --color-paper-raised: #ffffff;
+  --color-amber: #ffb100;
+  --color-amber-dark: #d99400;
+  --color-success: #2e7d32;
+  --color-danger: #c62828;
+  --color-muted: #6b7280;
+  --color-line: #e2e2df;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-token {
+  font-family: var(--font-mono);
+}
+
+/* Perforated ticket-stub edge - the signature visual motif of the app */
+.ticket-perforation {
+  position: relative;
+}
+
+.ticket-perforation::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--color-paper);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--color-line);
+}
+
+.ticket-perforation::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--color-paper);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--color-line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
