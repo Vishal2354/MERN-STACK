@@ -1,0 +1,9 @@
+# Ignore generated output files and local build artifacts
+Output/
+
+# Ignore local environment files
+*.env
+
+# Ignore dependency directories
+queueease/backend/node_modules/
+queueease/frontend/node_modules/

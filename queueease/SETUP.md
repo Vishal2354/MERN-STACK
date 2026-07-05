@@ -51,7 +51,31 @@ You have two options - pick whichever is easier for you.
   ```
   mongodb://127.0.0.1:27017/queueease
   ```
+### Option C - MongoDB with Docker
 
+If `systemctl` is unavailable or you prefer not to install MongoDB locally, you can run MongoDB in Docker instead:
+
+```bash
+docker run --name queueease-mongo -p 27017:27017 -d mongo:7.0
+```
+
+If the container already exists, start it:
+
+```bash
+docker start queueease-mongo
+```
+
+To stop the container:
+
+```bash
+docker stop queueease-mongo
+```
+
+Then use the same local connection string in your backend `.env` file:
+
+```bash
+MONGO_URI=mongodb://127.0.0.1:27017/queueease
+```
 ## 3. Get the project onto your machine
 
 If you received this as a folder/zip, just extract it somewhere and open a terminal in that folder.

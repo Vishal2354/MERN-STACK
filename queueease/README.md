@@ -87,7 +87,7 @@ queueease/
 
 See **SETUP.md** for full step-by-step instructions to run this on a fresh machine (installing Node, MongoDB, environment variables, seeding, running both servers).
 
-Quick version if you already have Node.js and MongoDB installed:
+Quick version if you already have Node.js installed:
 
 ```bash
 # Backend
@@ -96,11 +96,25 @@ npm install
 cp .env.example .env
 npm run seed      # creates demo admin/staff accounts + sample departments
 npm run dev        # runs on http://localhost:5000
+```
 
-# Frontend (in a second terminal)
+If you do not have a local MongoDB server or are running inside a container, start MongoDB with Docker:
+
+```bash
+docker run --name queueease-mongo -p 27017:27017 -d mongo:7.0
+```
+
+If that container already exists, start it instead:
+
+```bash
+docker start queueease-mongo
+```
+
+Then in a second terminal:
+
+```bash
 cd frontend
 npm install
-cp .env.example .env
 npm run dev        # runs on http://localhost:5173
 ```
 
