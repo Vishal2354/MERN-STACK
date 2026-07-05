@@ -59,26 +59,29 @@ Since the brief was intentionally open-ended, here's what I assumed and why:
 ## Project structure
 
 ```
-queueease/
-├── backend/
-│   └── src/
-│       ├── config/       # DB connection
-│       ├── models/       # User, Department, Ticket
-│       ├── controllers/  # request handlers / business logic
-│       ├── routes/       # Express routers
-│       ├── middleware/   # auth guard, error handler
-│       ├── sockets/      # Socket.io room logic
-│       ├── utils/        # JWT helper, seed script
-│       └── server.js
-└── frontend/
-    └── src/
-        ├── pages/
-        │   ├── customer/  # Home, JoinQueue, TicketStatus
-        │   ├── staff/     # StaffDashboard
-        │   └── admin/     # AdminDashboard + tabs
-        ├── components/    # Navbar, TicketStub, ProtectedRoute
-        ├── context/       # AuthContext
-        └── services/      # axios instance, socket client
+MERN-STACK/
+├── README.md
+├── SETUP.md
+└── queueease/
+    ├── backend/
+    │   └── src/
+    │       ├── config/       # DB connection
+    │       ├── models/       # User, Department, Ticket
+    │       ├── controllers/  # request handlers / business logic
+    │       ├── routes/       # Express routers
+    │       ├── middleware/   # auth guard, error handler
+    │       ├── sockets/      # Socket.io room logic
+    │       ├── utils/        # JWT helper, seed script
+    │       └── server.js
+    └── frontend/
+        └── src/
+            ├── pages/
+            │   ├── customer/  # Home, JoinQueue, TicketStatus
+            │   ├── staff/     # StaffDashboard
+            │   └── admin/     # AdminDashboard + tabs
+            ├── components/    # Navbar, TicketStub, ProtectedRoute
+            ├── context/       # AuthContext
+            └── services/      # axios instance, socket client
 ```
 
 ---
@@ -87,7 +90,7 @@ queueease/
 
 See **SETUP.md** for full step-by-step instructions to run this on a fresh machine (installing Node, MongoDB, environment variables, seeding, running both servers).
 
-Quick version if you already have Node.js and MongoDB installed:
+Quick version if you already have Node.js installed:
 
 ```bash
 # Backend
@@ -96,11 +99,25 @@ npm install
 cp .env.example .env
 npm run seed      # creates demo admin/staff accounts + sample departments
 npm run dev        # runs on http://localhost:5000
+```
 
-# Frontend (in a second terminal)
+If you do not have a local MongoDB server or are running inside a container, start MongoDB with Docker:
+
+```bash
+docker run --name queueease-mongo -p 27017:27017 -d mongo:7.0
+```
+
+If that container already exists, start it instead:
+
+```bash
+docker start queueease-mongo
+```
+
+Then in a second terminal:
+
+```bash
 cd frontend
 npm install
-cp .env.example .env
 npm run dev        # runs on http://localhost:5173
 ```
 
@@ -128,6 +145,3 @@ Demo accounts after seeding:
 
 ---
 
-## Figma
-
-Not included - the assignment notes this is optional and bonus-only, and candidates without Figma experience aren't penalized. I chose to spend the available time on the working MVP instead.
